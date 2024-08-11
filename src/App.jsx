@@ -1,7 +1,11 @@
 import { ThemeProvider } from "next-themes";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./pages/Home";
 import Layout from "./pages/layouts/Layout";
 import ProjectsLayout from "./pages/layouts/ProjectsLayout";
+import Profile from "./pages/Profile";
+import Settings from "./pages/Settings";
+import TasksView from "./pages/TasksView";
 import pathConstants from "./routes/pathConstants";
 
 const router = createBrowserRouter([
@@ -11,7 +15,7 @@ const router = createBrowserRouter([
         children: [
             {
                 index: true,
-                element: <h1>Home</h1>,
+                element: <Home />,
             },
             {
                 path: pathConstants.PROJECTS,
@@ -19,17 +23,17 @@ const router = createBrowserRouter([
                 children: [
                     {
                         path: pathConstants.SINGLE_PROJECT,
-                        element: <>one</>,
+                        element: <TasksView />,
                     },
                 ],
             },
             {
                 path: pathConstants.PROFILE,
-                element: <h1>User Profile Page</h1>,
+                element: <Profile />,
             },
             {
                 path: pathConstants.SETTINGS,
-                element: <h1>Settings Page</h1>,
+                element: <Settings />,
             },
         ],
     },

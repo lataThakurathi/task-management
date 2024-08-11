@@ -24,7 +24,6 @@ const Navbar = () => {
                     </li>
                 ))}
             </ul>
-            <ThemeToggler className="mt-1" />
         </div>
     );
 };
