@@ -2,32 +2,33 @@ import { ThemeProvider } from "next-themes";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./pages/layouts/Layout";
 import ProjectsLayout from "./pages/layouts/ProjectsLayout";
+import pathConstants from "./routes/pathConstants";
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: pathConstants.HOME,
         element: <Layout />,
         children: [
             {
-                path: "/",
+                index: true,
                 element: <h1>Home</h1>,
             },
             {
-                path: "/projects",
+                path: pathConstants.PROJECTS,
                 element: <ProjectsLayout />,
                 children: [
                     {
-                        path: ":id",
+                        path: pathConstants.SINGLE_PROJECT,
                         element: <>one</>,
                     },
                 ],
             },
             {
-                path: "/profile",
+                path: pathConstants.PROFILE,
                 element: <h1>User Profile Page</h1>,
             },
             {
-                path: "/settings",
+                path: pathConstants.SETTINGS,
                 element: <h1>Settings Page</h1>,
             },
         ],
