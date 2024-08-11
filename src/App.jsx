@@ -1,5 +1,12 @@
+import { ThemeProvider } from "next-themes";
+
 const App = () => {
-    return <div>App</div>;
+    return (
+        <ThemeProvider
+            attribute="class"
+            enableColorScheme={true}
+            enableSystem={true}></ThemeProvider>
+    );
 };
 
 export default App;
