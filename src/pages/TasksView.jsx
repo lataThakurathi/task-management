@@ -60,8 +60,6 @@ const Task = ({ task }) => {
 
     const showOptionsRef = useRef();
 
-    console.log(showOptionsRef);
-
     return (
         <div className="relative task-item h-3 bg-gray-100 dark:bg-gray-700 rounded-1 flex items-center px-1 gap-0.5 hover:dark:bg-gray-600 cursor-pointer">
             <input
