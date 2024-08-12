@@ -14,6 +14,8 @@ const ProjectsSidebar = () => {
 
     const project = selectProjectById(Number(projectId));
 
+    if (!project) return;
+
     return (
         <div className="w-15 shrink-0 bg-white dark:bg-gray-800 shadow rounded-0.75">
             <Section>
