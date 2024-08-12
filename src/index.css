@@ -9,3 +9,37 @@
 body {
     @apply h-screen bg-gray-100 dark:bg-gray-900;
 }
+
+.task-item-checkbox {
+    @apply shrink-0 appearance-none bg-white dark:bg-gray-800 relative m-0 h-1.25 w-1.25 rounded-full border-2 border-gray-600;
+}
+.task-item-checkbox:checked {
+    @apply border-primary dark:border-primary-400;
+}
+.task-item-checkbox:checked + label {
+    @apply text-gray-500 dark:text-gray-300 line-through;
+}
+.task-item-checkbox:before {
+    @apply rounded-full w-[9px] h-[2px] -rotate-45 block content-[''] bg-primary-400 absolute top-[7px] right-[2px] opacity-0;
+}
+.task-item-checkbox:checked:before {
+    @apply opacity-100;
+}
+.task-item-checkbox:after {
+    @apply opacity-0 block content-[""] rounded-full h-[2px] w-[6px] rotate-45 absolute top-[8px] left-[2px] bg-primary-400;
+}
+.task-item-checkbox:checked:after {
+    @apply opacity-100;
+}
+.task-item-text {
+    @apply grow h-full flex items-center select-none cursor-pointer;
+}
+.trash-icon {
+    @apply invisible transition opacity-0 text-gray-500;
+}
+.task-item:hover .trash-icon {
+    @apply opacity-100 visible;
+}
+.trash-icon:hover {
+    @apply text-red;
+}
