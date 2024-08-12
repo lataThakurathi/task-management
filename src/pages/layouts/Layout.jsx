@@ -5,7 +5,7 @@ import ThemeToggler from "../../components/ThemeToggler";
 
 const Layout = () => {
     return (
-        <Container className="h-full flex gap-0.5">
+        <Container className="h-full flex gap-0.5 w-full">
             <div className="flex flex-col items-center">
                 <Navbar />
                 <ThemeToggler className="mt-0.5" />

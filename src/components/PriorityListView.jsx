@@ -2,6 +2,7 @@ import { useSearchParams } from "react-router-dom";
 import clsx from "clsx";
 import priorities from "../data/priorities.js";
 import { Link } from "react-router-dom";
+import { searchParamConstants } from "../routes/pathConstants.jsx";
 
 const priorityColorClassMap = {
     0: "bg-gray-200 dark:bg-gray-700", // All Tasks
@@ -12,7 +13,8 @@ const priorityColorClassMap = {
 
 const PriorityListView = () => {
     const [searchParams] = useSearchParams();
-    const selectedPriority = searchParams.get("selectedPriority") || "all";
+    const selectedPriority =
+        searchParams.get(searchParamConstants.SELECTED_PRIORITY) || "all";
 
     const priorityItems = [
         {
@@ -44,7 +46,7 @@ const PriorityListView = () => {
 const PriorityItem = ({ priorityItem, isActive }) => {
     return (
         <Link
-            to={`?selectedPriority=${priorityItem.value}`}
+            to={`?${searchParamConstants.SELECTED_PRIORITY}=${priorityItem.value}`}
             className={clsx(
                 "h-3 p-0.5 hover:bg-gray-100 dark:hover:bg-gray-700 cursor-pointer flex items-center rounded-full gap-0.5",
                 isActive ? "bg-gray-100 dark:bg-gray-700" : "bg-transparent"

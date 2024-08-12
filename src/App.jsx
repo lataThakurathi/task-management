@@ -7,6 +7,7 @@ import Profile from "./pages/Profile";
 import Settings from "./pages/Settings";
 import TasksView from "./pages/TasksView";
 import pathConstants from "./routes/pathConstants";
+import { TasksContext, TasksProvider } from "./contexts/TasksContext";
 
 const router = createBrowserRouter([
     {
@@ -45,7 +46,9 @@ const App = () => {
             attribute="class"
             enableColorScheme={true}
             enableSystem={true}>
-            <RouterProvider router={router} />
+            <TasksProvider>
+                <RouterProvider router={router} />
+            </TasksProvider>
         </ThemeProvider>
     );
 };

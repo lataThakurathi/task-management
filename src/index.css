@@ -31,9 +31,6 @@ body {
 .task-item-checkbox:checked:after {
     @apply opacity-100;
 }
-.task-item-text {
-    @apply grow h-full flex items-center select-none cursor-pointer;
-}
 .trash-icon {
     @apply invisible transition opacity-0 text-gray-500;
 }

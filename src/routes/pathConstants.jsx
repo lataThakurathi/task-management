@@ -2,6 +2,10 @@ export const paramConstants = {
     SINGLE_PROJECT_PARAM: "id",
 };
 
+export const searchParamConstants = {
+    SELECTED_PRIORITY: "selectedPriority",
+};
+
 const createPathConstants = () => {
     const pathConstants = {
         HOME: "/",
