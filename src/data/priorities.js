@@ -18,5 +18,10 @@ const priorities = [
         description: "Tasks that can be addressed later",
     },
 ];
-
+export const priorityColorClassMap = {
+    0: "bg-gray-200 dark:bg-gray-700", // All Tasks
+    1: "bg-red", // High Priority
+    2: "bg-yellow", // Medium Priority
+    3: "bg-green", // Low Priority
+};
 export default priorities;

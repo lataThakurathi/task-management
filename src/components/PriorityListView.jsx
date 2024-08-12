@@ -3,13 +3,7 @@ import clsx from "clsx";
 import priorities from "../data/priorities.js";
 import { Link } from "react-router-dom";
 import { searchParamConstants } from "../routes/pathConstants.jsx";
-
-const priorityColorClassMap = {
-    0: "bg-gray-200 dark:bg-gray-700", // All Tasks
-    1: "bg-red", // High Priority
-    2: "bg-yellow", // Medium Priority
-    3: "bg-green", // Low Priority
-};
+import { priorityColorClassMap } from "../data/priorities.js";
 
 const PriorityListView = () => {
     const [searchParams] = useSearchParams();

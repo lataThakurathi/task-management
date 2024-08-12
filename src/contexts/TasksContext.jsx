@@ -56,10 +56,20 @@ export const TasksProvider = ({ children }) => {
         }
         return tasksFilteredByProjectId;
     };
+    const changeTaskPriority = (taskId, newPriorityId) => {
+        setTasks((prevTasks) =>
+            prevTasks.map((task) =>
+                task.id === taskId
+                    ? { ...task, priorityId: newPriorityId }
+                    : task
+            )
+        );
+    };
 
     return (
         <TasksContext.Provider
             value={{
+                changeTaskPriority,
                 tasks,
                 addTask,
                 deleteTask,
