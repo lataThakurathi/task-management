@@ -40,3 +40,68 @@ body {
 .trash-icon:hover {
     @apply text-red;
 }
+.input-form {
+    height: 3rem;
+    min-width: 0;
+    width: 100%;
+    border: none;
+    background-color: #eee;
+    border-radius: 1000px;
+    font-family: Montserrat;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    position: relative;
+}
+
+.input-form:hover .input-box:not(.input-box:focus) {
+    border: 1px solid #777;
+}
+
+.input-box {
+    height: 100%;
+    background-color: transparent;
+    border: 1px solid transparent;
+    width: 100%;
+    border-radius: 1000px;
+    padding-left: 1rem;
+    font-size: 14px;
+}
+
+.input-box:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 100, 255, 0.5);
+}
+
+.input-box::placeholder {
+    font-family: Montserrat;
+    color: #444;
+    font-size: 14px;
+}
+
+.btn-submit {
+    color: #555;
+    right: 0.5rem;
+    border: none;
+    position: absolute;
+    border-radius: 50%;
+    height: 2rem;
+    width: 2rem;
+    padding: 0.25rem;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.btn:active {
+    transform: scale(0.9);
+}
+
+.btn-submit.btn-send {
+    background-color: transparent;
+}
+
+.send-icon {
+    height: 100%;
+    width: 100%;
+    color: rgba(0, 100, 255, 1);
+}

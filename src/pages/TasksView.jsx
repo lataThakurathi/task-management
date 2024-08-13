@@ -2,16 +2,19 @@ import { useParams, useSearchParams } from "react-router-dom";
 import priorities, { priorityColorClassMap } from "../data/priorities";
 import Section from "../components/Section/Section";
 import PopOver from "../components/PopOver";
+import AddItemBar from "../components/AddItemBar";
 import SectionHead from "../components/Section/SectionHead";
 import SectionTitle from "../components/Section/SectionTitle";
 import SectionMain from "../components/Section/SectionMain";
+import SectionFoot from "../components/Section/SectionFoot";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { useTasksContext } from "../contexts/TasksContext";
 import { searchParamConstants } from "../routes/pathConstants";
 import { BsThreeDotsVertical } from "react-icons/bs";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import useToggle from "../hooks/useToggle";
 import clsx from "clsx";
+import { IoSendSharp } from "react-icons/io5";
 
 const TasksView = () => {
     const { id: projectId } = useParams();
@@ -20,7 +23,20 @@ const TasksView = () => {
         searchParamConstants.SELECTED_PRIORITY
     );
 
-    const { selectTasksByPriorityId, selectTasksByProjectId } =
+    const [newTaskText, setNewTaskText] = useState("");
+
+    const handleNewTaskInputChange = (e) => {
+        setNewTaskText(e.target.value);
+    };
+
+    const addTaskModified = (e) => {
+        e.preventDefault();
+        if (newTaskText === "") return;
+        addTask(newTaskText, 1, Number(projectId));
+        setNewTaskText("");
+    };
+
+    const { addTask, selectTasksByPriorityId, selectTasksByProjectId } =
         useTasksContext();
 
     const priority = priorities.find((p) => p.value === priorityValue);
@@ -47,6 +63,18 @@ const TasksView = () => {
                         ))}
                     </div>
                 </SectionMain>
+                <SectionFoot>
+                    <AddItemBar
+                        onAddFormSubmit={addTaskModified}
+                        inputValue={newTaskText}
+                        onInputChange={handleNewTaskInputChange}>
+                        <button
+                            type="submit"
+                            className="btn btn-submit btn-send">
+                            <IoSendSharp className="send-icon" />
+                        </button>
+                    </AddItemBar>
+                </SectionFoot>
             </Section>
         </div>
     );

@@ -17,6 +17,14 @@ const Home = () => {
                 </SectionHead>
                 <SectionMain>
                     <div className="px-1 pb-1 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1">
+                        <div className="bg-gray-100 cursor-pointer rounded-1 flex items-center p-1 justify-center text-3 leading-1 relative">
+                            <input
+                                placeholder="Add new project"
+                                type="text"
+                                className="border placeholder:text-1 p-0 text-1 pl-1 rounded-full pr-2 h-2 min-w-[0]"
+                            />
+                            <button className="pl-1">+</button>
+                        </div>
                         {projects.map((project) => (
                             <Project project={project} />
                         ))}
