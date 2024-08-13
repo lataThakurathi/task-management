@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import Section from "../components/Section/Section";
 import SectionTitle from "../components/Section/SectionTitle";
 import SectionHead from "../components/Section/SectionHead";
@@ -7,7 +8,19 @@ import { Link } from "react-router-dom";
 import pathConstants from "../routes/pathConstants";
 
 const Home = () => {
-    const { projects } = useProjectsContext();
+    const { projects, addProject } = useProjectsContext();
+    const [newProjectTitle, setNewProjectTitle] = useState("");
+
+    const handleAddProject = () => {
+        if (newProjectTitle.trim() === "") return;
+        const newProject = {
+            id: projects.length + 1,
+            title: newProjectTitle,
+            status: "incomplete",
+        };
+        addProject(newProject);
+        setNewProjectTitle("");
+    };
 
     return (
         <div className="h-full w-full shadow bg-white rounded-0.75 dark:bg-gray-800">
@@ -21,12 +34,18 @@ const Home = () => {
                             <input
                                 placeholder="Add new project"
                                 type="text"
+                                value={newProjectTitle}
+                                onChange={(e) =>
+                                    setNewProjectTitle(e.target.value)
+                                }
                                 className="border placeholder:text-1 p-0 text-1 pl-1 rounded-full pr-2 h-2 min-w-[0]"
                             />
-                            <button className="pl-1">+</button>
+                            <button onClick={handleAddProject} className="pl-1">
+                                +
+                            </button>
                         </div>
                         {projects.map((project) => (
-                            <Project project={project} />
+                            <Project key={project.id} project={project} />
                         ))}
                     </div>
                 </SectionMain>
